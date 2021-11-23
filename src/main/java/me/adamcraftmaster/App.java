@@ -63,9 +63,8 @@ public class App
             char letter = guess.charAt(0);
             boolean found = false;
 
-            System.out.println(guess);
-            System.out.println(new String(word));
-            if(guess == new String(word)) {
+            //check if the word was guessed correctly
+            if(guess.equals(new String(word))) {
                 correct = true;
                 System.out.println("Correct!");
                 System.out.println("You have guessed the word! The word was " + new String(word));
