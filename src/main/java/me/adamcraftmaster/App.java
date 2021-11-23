@@ -1,6 +1,7 @@
 package me.adamcraftmaster;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class App 
 {
@@ -58,8 +59,18 @@ public class App
             System.out.println("Guesses left: " + (5 - guesses));
             System.out.println("Please input a letter.");
             //convert the first letter of the guess to a char
-            char letter = input.next().charAt(0);
+            String guess = input.next();
+            char letter = guess.charAt(0);
             boolean found = false;
+
+            System.out.println(guess);
+            System.out.println(new String(word));
+            if(guess == new String(word)) {
+                correct = true;
+                System.out.println("Correct!");
+                System.out.println("You have guessed the word! The word was " + new String(word));
+                break;
+            }
 
             //check if the letter is in the word
             for (int i = 0; i < word.length; i++) {
@@ -88,7 +99,7 @@ public class App
             }
 
             //if the word is guessed, print the word
-            if (word.equals(knownletters)) {
+            if (new String(knownletters).equals(new String(word))) {
                 System.out.println("You have guessed the word! The word was " + new String(word));
                 correct = true;
             }
